@@ -10,7 +10,7 @@ PATH = "/apache-maven-3.8.3/bin:$PATH"
   stages{
     stage('build'){
       steps {
-      sh 'mvn clean package'
+      bat 'mvn clean package'
       }
     }
     stage('SonarQube Analysis'){
@@ -19,7 +19,7 @@ PATH = "/apache-maven-3.8.3/bin:$PATH"
     def mvn = tool 'maven-tool'
       }
     withSonarQubeEnv('SonarQube'){
-      sh "${mvn}/bin/sonar-scanner"
+      bat "${mvn}/bin/sonar-scanner"
     }
     }
   }
