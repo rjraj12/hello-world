@@ -12,7 +12,7 @@ pipeline {
     def mvn = tool 'maven-tool'
       }
     withSonarQubeEnv('SonarQube'){
-      bat "${mvn}/bin/sonar-scanner"
+      bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
     }
     }
   }
