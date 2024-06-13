@@ -1,15 +1,15 @@
 pipeline {
   stages{
-  stage('build'){
-    steps {
+    stage('build'){
+      steps {
       sh 'mvn clean deploy'
+      }
     }
-   }
-  stage('SonarQube Analysis') {
+    stage('SonarQube Analysis') {
     def mvn = tool 'maven-tool';
     withSonarQubeEnv() {
       sh "${mvn}/bin/sonar-scanner"
     }
   }
-}
+ }
 }
