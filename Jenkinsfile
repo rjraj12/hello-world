@@ -1,7 +1,8 @@
 pipeline {
   agent any
     tools{
-        maven 'maven-tool'
+      jdk 'java-tool'
+      maven 'maven-tool'
     }
   environment {
 PATH = "/apache-maven-3.8.3/bin:$PATH"
