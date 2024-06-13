@@ -9,7 +9,7 @@ pipeline {
     stage('SonarQube Analysis'){
     def mvn = tool 'maven-tool'
     steps {
-    withSonarQubeEnv(){
+    withSonarQubeEnv('My SonarQube Server'){
       sh "${mvn}/bin/sonar-scanner"
     }
     }
