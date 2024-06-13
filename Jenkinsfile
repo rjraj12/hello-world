@@ -1,9 +1,4 @@
 pipeline {
-node {
-  stage('SCM') {
-    checkout scm
-  }
-}
   stages{
   stage('build'){
     steps {
