@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages{
+    stage('clone'){
+      steps {
+      git "https://github.com/rjraj12/hello-world/"
+      }
+    }
     stage('build'){
       steps {
       bat 'mvn clean package'
