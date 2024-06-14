@@ -15,13 +15,7 @@
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     <sonar.projectKey>new-test-Project</sonar.projectKey>
-    <sonar.moduleKey>${artifactId}</sonar.moduleKey>
   </properties>
-
-  <modules>
-    <module>server</module>
-    <module>webapp</module>
-  </modules>
 
   <distributionManagement>
     <site>
@@ -223,7 +217,7 @@
     <connection>scm:git:git@github.com:jleetutorial/maven-project.git</connection>
     <developerConnection>scm:git:git@github.com:jleetutorial/maven-project.git</developerConnection>
     <tag>HEAD</tag>
-    <url>http://github.com/jleetutorial/maven-project</url>
+    <url>https://github.com/rjraj12/hello-world</url>
   </scm>
 
   <prerequisites>
