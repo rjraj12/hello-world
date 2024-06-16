@@ -1,3 +1,4 @@
+def registry = "https://rajeev23.jfrog.io/"
 pipeline {
   agent any
   stages{
@@ -21,5 +22,29 @@ pipeline {
     }
     }
   }
+    stage('War Publish') {
+      steps {
+        script {
+          echo '<----------------- war file publishing starts ---------------------->'
+           def server = Artifactory.newServer url:registry+"/artifactory", credentialsId: 'jfrog'
+           def properties = "buildid={$env.BUILD_ID},commitid=${GIT_COMMIT}";
+           def uploadSpec = """{
+               "files": [
+                 {
+                   "pattern": "webapp/*",
+                   "target": "mavtest-libs-release-local/",
+                   "flat": "false",
+                   "Props": "${properties}",
+                   "exclusions": ["*.sha1", "*.md5"]
+                }
+            ]
+          }"""
+          def buildInfo = server.upload(uploadSpec)
+          buildInfo.env.collect()
+          server.publishBuildInfo(buildInfo)
+          echo '<-------------- war publish ------------>'
+        }
+    }
+   }
  }
 }
