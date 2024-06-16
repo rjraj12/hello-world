@@ -35,7 +35,7 @@ pipeline {
                    "pattern": "webapp/*",
                    "target": "mavtest-libs-release-local/",
                    "flat": "false",
-                   "Props": "${properties}",
+                   "props": "${properties}",
                    "exclusions": ["*.sha1", "*.md5"]
                 }
             ]
