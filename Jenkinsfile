@@ -59,8 +59,6 @@ pipeline {
                  {
                    "pattern": "mavtest-libs-release-local/webapp/target/webapp.war",
                    "target": "downlod/",
-                   "flat": "false",
-                   "props": "${properties}",
                    "exclusions": ["*.sha1", "*.md5"]
                 }
             ]
