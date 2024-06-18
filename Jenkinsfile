@@ -57,8 +57,8 @@ pipeline {
            def downloadSpec = """{
                "files": [
                  {
-                   "pattern": "webapp/*",
-                   "target": "/",
+                   "pattern": "mavtest-libs-release-local/webapp/*",
+                   "target": "downlod/",
                    "flat": "false",
                    "props": "${properties}",
                    "exclusions": ["*.sha1", "*.md5"]
