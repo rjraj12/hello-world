@@ -47,5 +47,29 @@ pipeline {
         }
     }
    }
+      stage('War fetch') {
+      steps {
+        script {
+          echo '<----------------- war file fetching starts ---------------------->'
+          echo '<---- ${registry} ------>'
+           def server = Artifactory.newServer url:registry+"/artifactory", credentialsId: 'jfrog'
+           def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}";
+           def downloadSpec = """{
+               "files": [
+                 {
+                   "pattern": "webapp/*",
+                   "target": "/",
+                   "flat": "false",
+                   "props": "${properties}",
+                   "exclusions": ["*.sha1", "*.md5"]
+                }
+            ]
+          }"""
+          def buildInfo = server.download(downloadSpec)
+          buildInfo.env.collect()
+          echo '<-------------- war fetch ------------>'
+        }
+    }
+   }
  }
 }
