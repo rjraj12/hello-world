@@ -70,4 +70,11 @@ pipeline {
     }
    }
  }
+post {
+        always {
+                build job: "mavenProject", wait: true
+           echo '<-------------- war published tomact ------------>'
+        }
+    }
+}
 }
