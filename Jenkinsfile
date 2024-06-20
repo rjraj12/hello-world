@@ -72,7 +72,8 @@ pipeline {
  }
 post {
         always {
-                build job: "mavenProject", wait: true
+            deploy adapters: [tomcat9(url: 'http://localhost:8090/', credentialsId: 'tomcat')], 
+                     war: 'downlod/webapp/target/*.war'
            echo '<-------------- war published tomact ------------>'
         }
     }
