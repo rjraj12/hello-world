@@ -58,7 +58,7 @@ pipeline {
                "files": [
                  {
                    "pattern": "mavtest-libs-release-local/webapp/target/*",
-                   "target": "downlod/",
+                   "target": "download/",
                    "exclusions": ["*.sha1", "*.md5"]
                 }
             ]
