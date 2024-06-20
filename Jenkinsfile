@@ -73,7 +73,7 @@ pipeline {
 post {
         always {
             deploy adapters: [tomcat9(url: 'http://localhost:8090/', credentialsId: 'tomcat')], 
-                     war: 'downld/webapp/target/*.war'
+                     war: 'download/webapp/target/*.war'
            echo '<-------------- war published tomact ------------>'
         }
     }
